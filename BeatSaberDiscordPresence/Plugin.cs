@@ -62,7 +62,7 @@ namespace BeatSaberDiscordPresence
                 DiscordRpc.Initialize(DiscordAppID, ref handlers, false, string.Empty);
 
                 logger.Info("Fetching nonpublic fields");
-                _gameplayCoreSceneSetupDataField = typeof(SceneSetup<GameplayCoreSceneSetupData>).GetField("_sceneSetupData", BindingFlags.NonPublic | BindingFlags.Instance);
+                _gameplayCoreSceneSetupDataField = typeof(GameplayCoreSceneSetup).GetField("_sceneSetupData", BindingFlags.NonPublic | BindingFlags.Instance);
                 _oneColorBeatmapCharacteristic = typeof(GameplayCoreSceneSetup).GetField("_oneColorBeatmapCharacteristic", BindingFlags.NonPublic | BindingFlags.Instance);
 #if DEBUG
                 logger.Debug("Discord Presence - Field SceneSetup<GameplayCoreSceneSetupData>._sceneSetupData: " + _gameplayCoreSceneSetupDataField);
